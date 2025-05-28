@@ -3,8 +3,8 @@ FROM ubuntu:20.04
 WORKDIR /home/
 
 RUN apt-get update --fix-missing && \
-    DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata && \
-    apt-get install -y \
+    DEBIAN_FRONTEND="noninteractive" apt-get -y install \
+        tzdata \
         unzip \
         build-essential \
         zlib1g-dev \
