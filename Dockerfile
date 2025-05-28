@@ -1,8 +1,8 @@
-FROM ubuntu
+FROM ubuntu:18.04
 
 WORKDIR /home/
 
-COPY htslib-1.18.tar.bz2 .
+COPY htslib-1.21.tar.bz2 .
 COPY build_htslib.sh .
 
 RUN apt-get update --fix-missing
@@ -16,7 +16,7 @@ COPY *.h ./
 COPY *.cpp ./
 ADD libs ./libs
 
-RUN cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DNATIVE=ON . && make
+RUN cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo . && make
 
 RUN apt-get install -y python python-dev curl
 RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
