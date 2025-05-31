@@ -71,7 +71,7 @@ if cmd_args.sampling_regions:
     config_file.write("sampling_regions %s\n" % cmd_args.sampling_regions)
 config_file.write("version %s\n" % VERSION)
 
-with pysam.AlignmentFile(cmd_args.bam_file) as bam_file, open(cmd_args.workdir + "/contig_map", "w") as contigs_file:
+with pysam.AlignmentFile(cmd_args.bam_file, reference_filename=cmd_args.reference) as bam_file, open(cmd_args.workdir + "/contig_map", "w") as contigs_file:
     for r in bam_file.references:
         contigs_file.write("%s\n" % r)
 
