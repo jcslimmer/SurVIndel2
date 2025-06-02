@@ -16,7 +16,7 @@ COPY *.h ./
 COPY *.cpp ./
 ADD libs ./libs
 
-RUN cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DNATIVE=ON . && make
+RUN cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo . && make
 
 RUN apt-get install -y python3 python3-dev python3-pysam python3-pyfaidx python3-numpy python3-sklearn
 
